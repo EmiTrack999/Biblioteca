@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registrar Cuenta - Biblioteca</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #004080, #5dade2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .register-container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+        .register-container h1 {
+            color: #004080;
+            margin-bottom: 20px;
+        }
+        .register-container input[type="text"],
+        .register-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .register-container button {
+            background-color: #004080;
+            color: #ffffff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .register-container button:hover {
+            background-color: #003366;
+        }
+        .message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <img src="imagenes/imagenessalida.png.png" alt="Logotipo de la empresa" style="width: 150px; height: auto; margin-bottom: 20px;">
+        <h1>Registrar Cuenta</h1>
+        <form action="/registrar" method="POST">
+            <input type="text" name="usuario" placeholder="Correo electrónico" required>
+            <input type="password" name="contrasena" placeholder="Contraseña" required>
+            <button type="submit">Registrar</button>
+        </form>
+        <% if (mensaje) { %>
+            <p class="message"><strong><%= mensaje %></strong></p>
+        <% } %>
+        <form action="/login" method="GET">
+            <button type="submit" style="background-color:#5dade2; margin-top:10px;">Volver a Iniciar Sesión</button>
+        </form>
+    </div>
+</body>
+</html>
