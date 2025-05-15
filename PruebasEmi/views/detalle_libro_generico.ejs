@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title><%= libro.nombre %> - Detalles</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #004080, #5dade2);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .volver {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #5dade2;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+        .volver:hover {
+            background-color: #2e8bc0;
+            transform: scale(1.05);
+        }
+        .card {
+            background-color: #fff;
+            color: #004080;
+            padding: 40px 40px 30px 40px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+            max-width: 500px;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        .card h1 {
+            margin-bottom: 0;
+            font-size: 2em;
+            color: #004080;
+            text-align: center;
+        }
+        .info {
+            margin-bottom: 0;
+            font-size: 1.1em;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .descripcion {
+            background-color: #eaf2fb;
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 0;
+            text-align: justify;
+            line-height: 1.6;
+        }
+        .botones {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+        .botones a, .botones form button {
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.2s;
+            color: #fff;
+            font-size: 1em;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            border: none;
+            cursor: pointer;
+            background-color: #5dade2;
+        }
+        .botones a.carrito {
+            background-color: #004080;
+        }
+        .botones a.carrito:hover {
+            background-color: #003366;
+        }
+        .botones a.comprar, .botones form button.comprar {
+            background-color: #5dade2;
+        }
+        .botones a.comprar:hover, .botones form button.comprar:hover {
+            background-color: #2e8bc0;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/menu_principal" class="volver">← Volver</a>
+
+    <div class="card">
+        <h1><%= libro.nombre %></h1>
+        <div class="info">
+            <div><strong>Autor:</strong> <%= libro.autor %></div>
+            <div><strong>Categoría:</strong> <%= libro.categoria %></div>
+        </div>
+        <div class="descripcion">
+            <%= libro.descripcion %>
+        </div>
+        <div class="botones">
+            <form action="/agregar-al-carrito" method="POST" style="display:inline;">
+                <input type="hidden" name="libro_id" value="<%= libro.id %>">
+                <button type="submit" class="carrito">Agregar al carrito</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
