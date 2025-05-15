@@ -1,0 +1,18 @@
+# Ignorar node_modules y configuración sensible
+node_modules/
+.env
+*.log
+
+# Cache y temporales
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# NO ignores tus vistas, imágenes ni estilos
+# views/
+# public/
+# *.ejs
+# *.css
+# *.png
+# *.jpg
